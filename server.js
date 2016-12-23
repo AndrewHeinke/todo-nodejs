@@ -3,20 +3,33 @@ const app = express();
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect('link-to-db', (err, database) => {
+var db;
 
+MongoClient.connect('mongodb://andrew:hawkeye@ds143608.mlab.com:43608/todo-app', (err, database) => {
+  if (err) return console.log(err);
+  db = database;
+  app.listen(3000, () => {
+    console.log('listening on 3000');
+  });
 });
+
+app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.listen(3000, function() {
-  console.log('Listening on 3000');
-});
+app.use(express.static('./public'));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  db.collection('quotes').find().toArray((err, result) => {
+    if (err) return console.log(err);
+    res.render('index.ejs', {quotes: result});
+  });
 });
 
-app.post('/names', (req, res) => {
-  console.log(req.body);
+app.post('/quotes', (req, res) => {
+  db.collection('quotes').save(req.body, (err, result) => {
+    if (err) return console.log(err);
+    console.log('saved to database');
+    res.redirect('/');
+  });
 });
