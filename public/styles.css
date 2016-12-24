@@ -1,6 +1,7 @@
 body {
-  background: #FAFFFD;
+  background: #55505C;
   color: #1E1B18;
+  font-family: 'Roboto', sans-serif;
 }
 h1 {
   font-family: 'Libre Baskerville', serif;
@@ -8,23 +9,24 @@ h1 {
   text-align: center;
   font-size: 7rem;
   margin-bottom: 30px;
+  color: #FAFFFD;
 }
 button {
-  background-color: #0DAB76;
+  background-color: #3D52D5;
   color: #FAFFFD;
   border-radius: 0px;
   height: 60px;
 }
 .btn {
-  border-radius: 0px;
   padding: 10px 20px;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  /*box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
 }
 input {
   border: none;
+  border-radius: 4px;
   padding: 10px 20px;
   height: 60px;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  /*box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);*/
   margin: 0;
 }
 form {
@@ -33,4 +35,16 @@ form {
 }
 ul.quotes {
   margin-top: 40px;
+  list-style: none;
+}
+li.quote {
+  margin-bottom: 20px;
+  background: #FAFFFD;
+  padding: 10px;
+  border-radius: 4px;
+}
+span.name {
+  display: block;
+  font-weight: bold;
+  font-size: 3rem;
 }
