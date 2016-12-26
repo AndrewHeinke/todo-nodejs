@@ -16,9 +16,10 @@
     <form class="" action="/quotes" method="POST">
       <input type="text" placeholder="name" name="name" required>
       <input type="text" placeholder="quote" name="quote" required>
-      <button class="btn primary-btn"type="submit">Submit</button>
+      <button class="btn primary-btn" type="submit">Submit</button>
     </form>
-    <button id="update"> Update some stuff! </button>
+    <button class="btn primary-btn" id="update"> Update some stuff! </button>
+    <button class="btn primary-btn" id="delete"> Delete some stuff </button>
     <div class="col-md-6 col-md-offset-3">
       <ul class="quotes">
         <% for (var i=0; i<quotes.length; i++){%>
